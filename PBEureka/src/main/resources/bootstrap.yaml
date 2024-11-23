@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: PBEureka
+  cloud:
+    config:
+      enabled: true
+      url: http://localhost:8095
