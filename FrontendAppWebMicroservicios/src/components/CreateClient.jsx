@@ -55,8 +55,18 @@ const CreateClient = () => {
       '& .MuiInputBase-root': { '&.Mui-focused': { borderColor: '#42b983' } },
       '& .MuiFormHelperText-root': { color: 'yellow' },
       '& .MuiFormHelperText-root.Mui-error': { color: 'red' },
-  };         
+    };
     
+    const menuItemStyle = {
+        sx: { 
+            color: 'orange',
+            backgroundColor: '#2c3e50', 
+            '&:hover': { 
+                backgroundColor: '#34495e' 
+            } 
+        }
+    };
+
     return (
         <Box
             display="flex"
@@ -206,8 +216,8 @@ const CreateClient = () => {
                     onChange={(e) => setLatePayment(e.target.value === 'true')}
                     sx={textFieldStyle}
                 >
-                    <MenuItem value={"true"} sx={{ color: 'orange' }}>Yes</MenuItem> 
-                    <MenuItem value={"false"} sx={{ color: 'orange' }}>No</MenuItem>
+                    <MenuItem value={"true"} {...menuItemStyle}>Yes</MenuItem> 
+                    <MenuItem value={"false"} {...menuItemStyle}>No</MenuItem>
                 </TextField>
             </FormControl>
 
@@ -244,8 +254,8 @@ const CreateClient = () => {
                     onChange={(e) => setFreelance(e.target.value === 'true')}
                     sx={textFieldStyle}
                 >
-                    <MenuItem value={"true"}>Yes</MenuItem>
-                    <MenuItem value={"false"}>No</MenuItem>
+                    <MenuItem value={"true"} {...menuItemStyle}>Yes</MenuItem>
+                    <MenuItem value={"false"} {...menuItemStyle}>No</MenuItem>
                 </TextField>
             </FormControl>
 
@@ -282,8 +292,8 @@ const CreateClient = () => {
                     onChange={(e) => setStable(e.target.value === 'true')}
                     sx={textFieldStyle}
                 >
-                    <MenuItem value={"true"}>Yes</MenuItem>
-                    <MenuItem value={"false"}>No</MenuItem>
+                    <MenuItem value={"true"} {...menuItemStyle}>Yes</MenuItem>
+                    <MenuItem value={"false"} {...menuItemStyle}>No</MenuItem>
                 </TextField>
             </FormControl>
 
@@ -360,35 +370,44 @@ const CreateClient = () => {
                 <br />
                 <Button
                     variant="contained"
-                    color="info"
                     onClick={(e) => saveClient(e)}
                     startIcon={<SaveIcon />}
                     sx={{
-                      ...textFieldStyle,
-                      '& input[type=number]': {
-                          color: '#42b983', 
-                          '-moz-appearance': 'textfield', 
-                          '-webkit-appearance': 'none',
-                      },
-                      '& input[type=number]::-webkit-outer-spin-button, & input[type=number]::-webkit-inner-spin-button': {
-                          display: 'none',
-                      },
+                        backgroundColor: '#42b983',
+                        color: 'black',
+                        '&:hover': {
+                            backgroundColor: '#37a372',
+                        },
                     }}
                 >
                     Registrar
                 </Button>
             </FormControl>
 
-            <Box sx={{
-                marginTop: 3,
-                borderColor: "orange",
-                color: "orange",
-                "&:hover": {
-                    borderColor: "white",
-                    color: "white",
-                }
-            }}>
-                <Button component={Link} to="/home" variant="outlined" color="inherit">
+            <Box
+                sx={{
+                    marginTop: 3,
+                    borderColor: "orange",
+                    color: "orange",
+                    "&:hover": {
+                        borderColor: "red", 
+                        color: "red",      
+                    },
+                }}
+            >
+                <Button
+                    component={Link}
+                    to="/home"
+                    variant="outlined"
+                    sx={{
+                        borderColor: "orange", 
+                        color: "orange",       
+                        "&:hover": {
+                            borderColor: "red", 
+                            color: "red",       
+                        },
+                    }}
+                >
                     Back to Home
                 </Button>
             </Box>
