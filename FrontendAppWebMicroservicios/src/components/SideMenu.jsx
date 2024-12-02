@@ -29,7 +29,17 @@ export default function Sidemenu({ open, toggleDrawer }) {
   ];
 
   return (
-    <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
+    <Drawer
+      anchor="left"
+      open={open}
+      onClose={toggleDrawer(false)}
+      sx={{
+        '& .MuiDrawer-paper': {
+          backgroundColor: '#2c3e50',
+          color: 'orange', 
+        },
+      }}
+    >
       <Box
         sx={{ width: 250 }}
         role="presentation"
@@ -39,14 +49,23 @@ export default function Sidemenu({ open, toggleDrawer }) {
         <List>
           {menuItems.map((item, index) => (
             <ListItem key={index} disablePadding>
-              <ListItemButton component={Link} to={item.link}>
-                {item.icon} 
+              <ListItemButton
+                component={Link}
+                to={item.link}
+                sx={{
+                  '&:hover': {
+                    backgroundColor: '#3e5871',
+                    color: 'orange', 
+                  },
+                }}
+              >
+                {item.icon}
                 <ListItemText primary={item.text} />
               </ListItemButton>
             </ListItem>
           ))}
         </List>
-        <Divider />
+        <Divider sx={{ borderColor: 'orange' }} />
       </Box>
     </Drawer>
   );

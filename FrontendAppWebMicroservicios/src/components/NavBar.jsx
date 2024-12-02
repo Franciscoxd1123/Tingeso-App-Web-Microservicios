@@ -1,6 +1,6 @@
 import * as React from "react"; 
 import AppBar from "@mui/material/AppBar"; 
-import Box from "@mui/material/Box"; 
+import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar"; 
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton"; 
@@ -17,18 +17,23 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}> 
-      <AppBar position="static"> 
+      <AppBar position="static" sx={{ backgroundColor: "black", color: "orange" }}> 
         <Toolbar> 
-          <IconButton 
-            size="large" 
-            edge="start" 
-            color="inherit" 
-            aria-label="menu" 
-            sx={{ mr: 2 }} 
-            onClick={toggleDrawer(true)} 
-          >
-            <MenuIcon /> 
-          </IconButton>
+        <IconButton
+          size="large"
+          edge="start"
+          color="inherit"
+          aria-label="menu"
+          sx={{
+            mr: 2,
+            '&:focus': {
+              outline: 'none',
+            },
+          }}
+          onClick={toggleDrawer(true)}
+        >
+          <MenuIcon />
+        </IconButton>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}> 
             MonoPB: Sistema de Gestión de préstamos hipotecarios
