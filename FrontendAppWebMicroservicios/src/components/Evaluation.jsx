@@ -61,44 +61,46 @@ const Evaluation = () => {
 
   const getStateColor = (state) => {
     switch (state) {
+      case 3:
+        return 'yellow'; //En Evaluación
       case 4:
-        return 'success.main';
+        return 'green'; //Pre-Aprobada
       case 7:
-        return 'warning.main';
+        return 'red'; //Rechazada
       default:
-        return 'textPrimary';
+        return '#42b983'; //Default
     }
   };
 
   return (
-    <Box sx={{ backgroundColor: 'white', padding: 10 }}>
+    <Box sx={{ backgroundColor: '#2c3e50', padding: 10 }}>
       <Typography variant="h4" style={{ color: 'orange' }} gutterBottom>Solicitudes en Evaluación</Typography>
       {loading && <CircularProgress sx={{ marginTop: 2 }} />}
       {error && <Typography color="error">{error}</Typography>}
       {requests.length > 0 && (
-        <TableContainer component={Paper} sx={{ marginTop: 2 }}>
+        <TableContainer component={Paper} sx={{ marginTop: 2, backgroundColor: 'black' }}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="requests table">
             <TableHead>
               <TableRow>
-              <TableCell align="center" sx={{ fontWeight: "bold" }}>
+              <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Rut Solicitante
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Tipo Préstamo
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Monto
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Interés Anual
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Plazo
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Estado
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Acciones
                 </TableCell>
               </TableRow>
@@ -106,14 +108,26 @@ const Evaluation = () => {
             <TableBody>
               {requests.map((request) => (
                 <TableRow key={request.id}>
-                  <TableCell align="center">{request.rut}</TableCell>
-                  <TableCell align="center">{request.type}</TableCell>
-                  <TableCell align="center">{request.amount}</TableCell>
-                  <TableCell align="center">{request.interest}%</TableCell>
-                  <TableCell align="center">{request.time} Años</TableCell>
-                  <TableCell align="center">{getStateLabel(request.state)}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.rut}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.type}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.amount}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.interest}%</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.time} Años</TableCell>
                   <TableCell align="center">
-                    <Button variant="contained" color="primary" onClick={() => evaluateRequest(request.id)}>
+                  <span style={{ color: getStateColor(request.state) }}> 
+                    {getStateLabel(request.state)}
+                    </span>
+                  </TableCell>
+                  <TableCell align="center">
+                    <Button variant="contained" 
+                    sx={{
+                      backgroundColor: '#42b983',
+                      color: 'black',
+                      '&:hover': {
+                        backgroundColor: '#37a372',
+                      },
+                    }}  
+                    onClick={() => evaluateRequest(request.id)}>
                       Evaluar
                     </Button>
                   </TableCell>
@@ -125,18 +139,33 @@ const Evaluation = () => {
       )}
       {evaluationResult && (
         <Box sx={{ marginTop: 3 }}>
-            <Typography variant="h6" color="textPrimary">Resultado de la Evaluación:</Typography>
-            <Typography color="info.main">Rut Solicitante: {evaluationResult.rut}</Typography>
-            <Typography color="info.main">Tipo préstamo: {evaluationResult.type}</Typography>
-            <Typography color={getStateColor(evaluationResult.state)}>
-                Estado: {getStateLabel(evaluationResult.state)}
+            <Typography variant="h6" color="yellow">Resultado de la Evaluación:</Typography>
+            <Typography color="#42b983">Rut Solicitante: 
+            <span style={{ color: 'orange' }}> {evaluationResult.rut}</span></Typography>
+            <Typography color="#42b983">Tipo préstamo: 
+            <span style={{ color: 'orange' }}> {evaluationResult.type}</span></Typography>
+            <Typography color = '#42b983'>
+                Estado: 
+                <span style={{ color: getStateColor(evaluationResult.state) }}>{getStateLabel(evaluationResult.state)}</span>
             </Typography>
         </Box>
       )}
       <Box sx={{ marginTop: 3 }}>
-        <Button component={Link} to="/home" variant="outlined" color="primary">
-            Back to Home
-        </Button>
+      <Button
+              component={Link}
+              to="/home"
+              variant="outlined"
+              sx={{
+                  borderColor: "orange", 
+                  color: "orange",       
+                  "&:hover": {
+                      borderColor: "red", 
+                      color: "red",       
+                  },
+              }}
+          >
+              Back to Home
+          </Button>
       </Box>
     </Box>
   );

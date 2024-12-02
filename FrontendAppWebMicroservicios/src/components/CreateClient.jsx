@@ -213,11 +213,19 @@ const CreateClient = () => {
                     value={latePayment}
                     select
                     variant="standard"
-                    onChange={(e) => setLatePayment(e.target.value === 'true')}
-                    sx={textFieldStyle}
+                    onChange={(e) => setLatePayment(e.target.value)}
+                    sx={{
+                    ...textFieldStyle,
+                    '& .MuiInputBase-root': {
+                        color: latePayment === 'true' || latePayment === 'false' ? '#42b983' : '', // Cambiar el color del texto
+                    },
+                    '& .MuiSelect-icon': {
+                        color: latePayment === 'true' || latePayment === 'false' ? '#ff9800' : 'black', // Cambiar el color del icono (naranja)
+                    },
+                    }}
                 >
-                    <MenuItem value={"true"} {...menuItemStyle}>Yes</MenuItem> 
-                    <MenuItem value={"false"} {...menuItemStyle}>No</MenuItem>
+                    <MenuItem value="true" {...menuItemStyle}>Yes</MenuItem>
+                    <MenuItem value="false" {...menuItemStyle}>No</MenuItem>
                 </TextField>
             </FormControl>
 
@@ -252,7 +260,15 @@ const CreateClient = () => {
                     select
                     variant="standard"
                     onChange={(e) => setFreelance(e.target.value === 'true')}
-                    sx={textFieldStyle}
+                    sx={{
+                        ...textFieldStyle,
+                        '& .MuiInputBase-root': {
+                            color: latePayment === 'true' || latePayment === 'false' ? '#42b983' : '', // Cambiar el color del texto
+                        },
+                        '& .MuiSelect-icon': {
+                            color: latePayment === 'true' || latePayment === 'false' ? '#ff9800' : 'black', // Cambiar el color del icono (naranja)
+                        },
+                    }}
                 >
                     <MenuItem value={"true"} {...menuItemStyle}>Yes</MenuItem>
                     <MenuItem value={"false"} {...menuItemStyle}>No</MenuItem>
@@ -290,7 +306,15 @@ const CreateClient = () => {
                     select
                     variant="standard"
                     onChange={(e) => setStable(e.target.value === 'true')}
-                    sx={textFieldStyle}
+                    sx={{
+                        ...textFieldStyle,
+                        '& .MuiInputBase-root': {
+                            color: latePayment === 'true' || latePayment === 'false' ? '#42b983' : '', // Cambiar el color del texto
+                        },
+                        '& .MuiSelect-icon': {
+                            color: latePayment === 'true' || latePayment === 'false' ? '#ff9800' : 'black', // Cambiar el color del icono (naranja)
+                        },
+                    }}
                 >
                     <MenuItem value={"true"} {...menuItemStyle}>Yes</MenuItem>
                     <MenuItem value={"false"} {...menuItemStyle}>No</MenuItem>

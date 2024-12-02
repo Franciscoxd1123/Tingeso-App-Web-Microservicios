@@ -54,8 +54,21 @@ const AllRequests = () => {
     }
   };
 
+  const getStateColor = (state) => {
+    switch (state) {
+      case 3:
+        return 'yellow'; //En Evaluación
+      case 4:
+        return 'green'; //Pre-Aprobada
+      case 7:
+        return 'red'; //Rechazada
+      default:
+        return '#42b983'; //Default
+    }
+  };
+
   return (
-    <Box sx={{ backgroundColor: 'white', padding: 10 }}>
+    <Box sx={{ backgroundColor: '#2c3e50', padding: 10 }}>
       <Typography variant="h4" style={{ color: 'orange' }} gutterBottom>
         Solicitudes
       </Typography>
@@ -64,26 +77,26 @@ const AllRequests = () => {
       {error && <Typography color="error">{error}</Typography>}
 
       {requests.length > 0 && (
-        <TableContainer component={Paper} sx={{ marginTop: 2 }}>
+        <TableContainer component={Paper} sx={{ marginTop: 2, backgroundColor: 'black' }}>
           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
             <TableHead>
               <TableRow>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Rut Solicitante
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Tipo Préstamo
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Monto
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Interés Anual
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Plazo
                 </TableCell>
-                <TableCell align="center" sx={{ fontWeight: "bold" }}>
+                <TableCell align="center" sx={{ fontWeight: "bold", color: 'orange' }}>
                   Estado
                 </TableCell>
               </TableRow>
@@ -94,12 +107,16 @@ const AllRequests = () => {
                   key={request.id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  <TableCell align="center">{request.rut}</TableCell>
-                  <TableCell align="center">{request.type}</TableCell>
-                  <TableCell align="center">{request.amount}</TableCell>
-                  <TableCell align="center">{request.interest}%</TableCell>
-                  <TableCell align="center">{request.time} Años</TableCell>
-                  <TableCell align="center">{getStateLabel(request.state)}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.rut}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.type}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.amount}</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.interest}%</TableCell>
+                  <TableCell align="center" sx={{color: '#42b983'}}>{request.time} Años</TableCell>
+                  <TableCell align="center">
+                  <span style={{ color: getStateColor(request.state) }}> 
+                    {getStateLabel(request.state)}
+                    </span>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -108,9 +125,21 @@ const AllRequests = () => {
       )}
 
       <Box sx={{ marginTop: 3 }}>
-        <Button component={Link} to="/home" variant="outlined" color="primary">
-          Back to Home
-        </Button>
+      <Button
+              component={Link}
+              to="/home"
+              variant="outlined"
+              sx={{
+                  borderColor: "orange", 
+                  color: "orange",       
+                  "&:hover": {
+                      borderColor: "red", 
+                      color: "red",       
+                  },
+              }}
+          >
+              Back to Home
+          </Button>
       </Box>
     </Box>
   );

@@ -155,13 +155,14 @@ function Simulation() {
         </Button>
     </FormControl>
 
-      {monthlyPayment !== null && (
-        <Box sx={{ marginTop: 4 }}>
-          <Typography variant="h6" style={{ color: 'green' }}>
-            Cuota mensual estimada: ${monthlyPayment}
-          </Typography>
-        </Box>
-      )}
+    {monthlyPayment !== null && (
+      <Box sx={{ marginTop: 4 }}>
+        <Typography variant="h6" style={{ color: '#42b983' }}>
+          Cuota mensual estimada: 
+          <span style={{ color: 'orange' }}> ${monthlyPayment}</span>
+        </Typography>
+      </Box>
+    )}
 
       <Box
           sx={{
