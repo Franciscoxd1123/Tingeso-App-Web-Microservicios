@@ -44,22 +44,4 @@ public class RequestController {
         Request requestUpdated = requestService.updateRequest(request, id);
         return ResponseEntity.ok(requestUpdated);
     }
-
-    @PostMapping("/simulation")
-    public ResponseEntity<Integer> simulation(@RequestBody Request request) {
-        int monthlyPayments = businessLogicService.getMonthlyPayments(request);
-        return ResponseEntity.ok(monthlyPayments);
-    }
-
-    @GetMapping("/evaluation/{id}")
-    public ResponseEntity<Request> evaluateRequest(@PathVariable Long id) {
-        Request requestEvaluated = businessLogicService.evaluateRequest(id);
-        return ResponseEntity.ok(requestEvaluated);
-    }
-
-    @GetMapping("/totalCost/{id}")
-    public ResponseEntity<Integer> totalCost(@PathVariable Long id) {
-        int totalCost = businessLogicService.calculateTotalCost(id);
-        return ResponseEntity.ok(totalCost);
-    }
 }

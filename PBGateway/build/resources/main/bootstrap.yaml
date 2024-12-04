@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: PBGateway
+  cloud:
+    config:
+      enabled: true
+      url: http://localhost:8095
