@@ -4,4 +4,4 @@ spring:
   cloud:
     config:
       enabled: true
-      url: http://localhost:8095
+      url: http://PBConfig:8081

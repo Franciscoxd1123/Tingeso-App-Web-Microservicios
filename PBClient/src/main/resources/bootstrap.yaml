@@ -4,9 +4,9 @@ spring:
   cloud:
     config:
       enabled: true
-      url: http://localhost:8095
+      url: http://PBConfig:8081
   datasource:
-    url: jdbc:postgresql://${DB_HOST}:5432/Clients
+    url: jdbc:postgresql://localhost:5432/Clients
     username: postgres
     password: MyPostgre74SQL38
   jpa:
