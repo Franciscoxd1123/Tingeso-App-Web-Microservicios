@@ -1,7 +1,7 @@
-package com.example.PBRequest.controllers;
+package com.example.PBRequest.controller;
 
 import com.example.PBRequest.entity.Request;
-import com.example.PBRequest.services.RequestService;
+import com.example.PBRequest.service.RequestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/app/mono/requests")
+@RequestMapping("/app/micro/requests")
 @CrossOrigin("*")
 public class RequestController {
     @Autowired

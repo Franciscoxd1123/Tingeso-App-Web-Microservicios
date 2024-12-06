@@ -1,4 +1,4 @@
-package com.example.PBRequest.repositories;
+package com.example.PBRequest.repository;
 
 import com.example.PBRequest.entity.Request;
 import org.springframework.data.jpa.repository.JpaRepository;

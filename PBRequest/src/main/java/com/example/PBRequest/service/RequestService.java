@@ -1,7 +1,7 @@
-package com.example.PBRequest.services;
+package com.example.PBRequest.service;
 
 import com.example.PBRequest.entity.Request;
-import com.example.PBRequest.repositories.RequestRepository;
+import com.example.PBRequest.repository.RequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
