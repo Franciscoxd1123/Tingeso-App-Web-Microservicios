@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import requestService from '../services/requestService';
+import simulationService from '../services/simulationService';
 import LinearScaleIcon from '@mui/icons-material/LinearScale';
 import { Link } from "react-router-dom";
 import { Box, Typography, FormControl, TextField, Button } from '@mui/material';

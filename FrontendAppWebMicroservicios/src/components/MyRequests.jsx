@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, } from "@mui/material";
 import { TextField, Button, Box, Typography, CircularProgress,} from "@mui/material";
-import requestService from "../services/requestService";
 import { Link } from "react-router-dom";
 
 const RequestsRut = () => {

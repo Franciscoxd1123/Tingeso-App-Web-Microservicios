@@ -36,7 +36,7 @@ export default function Navbar() {
         </IconButton>
 
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}> 
-            MonoPB: Sistema de Gestión de préstamos hipotecarios
+            MicroPB: Sistema de Gestión de préstamos hipotecarios
           </Typography>
         </Toolbar>
       </AppBar>

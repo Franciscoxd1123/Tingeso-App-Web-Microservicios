@@ -37,7 +37,7 @@ const Home = () => {
 
   return (
     <div style={containerStyle}>
-      <h1 style={headingStyle}>MonoPB: Sistema de Gestión de préstamos hipotecarios</h1>
+      <h1 style={headingStyle}>MicroPB: Sistema de Gestión de préstamos hipotecarios</h1>
       <p style={paragraphStyle}>
         Bienvenido a la plataforma de gestión de préstamos hipotecarios. Aquí podrás registrarte como cliente, simular tus préstamos y 
         poder ver todo lo relacionado a estos. 

@@ -33,8 +33,7 @@ const CreateClient = () => {
             freelance, seniority, stable, retreats, recentRetreats, deposits, id
         };
 
-        clientService
-        .create(client)
+        clientService.create(client)
         .then((response) => {
             console.log("El Nuevo Cliente ha sido registrado con éxito.", response.data);
             navigate("/home");
