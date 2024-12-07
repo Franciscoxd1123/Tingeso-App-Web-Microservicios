@@ -22,6 +22,15 @@ public class ClientController {
         return ResponseEntity.ok(newClient);
     }
 
+    @GetMapping("/{clientRut}")
+    public ResponseEntity<Client> getClientByRut(@PathVariable("clientRut") String clientRut) {
+        Client client = clientService.getClientByRut(clientRut);
+        if (client == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(client);
+    }
+
     @GetMapping("/requests/{clientRut}")
     public ResponseEntity<List<Request>> getRequests(@PathVariable("clientRut") String clientRut){
         Client client = clientService.getClientByRut(clientRut);

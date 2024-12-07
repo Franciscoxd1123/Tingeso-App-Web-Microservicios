@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="PBConfig" />
         <module name="PBGateway" />
+        <module name="PBMyRequests" />
         <module name="PBRequest" />
         <module name="PBClient" />
         <module name="PBEureka" />
@@ -24,6 +25,7 @@
       <module name="PBConfig" options="-parameters" />
       <module name="PBEureka" options="-parameters" />
       <module name="PBGateway" options="-parameters" />
+      <module name="PBMyRequests" options="-parameters" />
       <module name="PBRequest" options="-parameters" />
     </option>
   </component>
