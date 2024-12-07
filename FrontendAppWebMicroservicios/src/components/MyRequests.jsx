@@ -12,7 +12,7 @@ const RequestsRut = () => {
 
   const fetchRequests = () => {
     setLoading(true);
-    requestService.getRut(rut) 
+    myRequestsService.getRequestsByRut(rut)
       .then((response) => {
         console.log("Mostrando tus solicitudes.", response.data);
         setRequests(response.data);

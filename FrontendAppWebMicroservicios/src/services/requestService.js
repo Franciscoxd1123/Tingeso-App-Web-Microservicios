@@ -1,35 +1,28 @@
 import httpClient from "../http-common";
 
+// Obtener todas las solicitudes
 const getAll = () => {
-    return httpClient.get("/requests/");
+    return httpClient.get("/app/micro/requests/");
 }
 
+// Obtener solicitud por ID
 const getId = id => {
-    return httpClient.get(`/requests/${id}`);
+    return httpClient.get(`/app/micro/requests/${id}`);
 }
 
+// Obtener solicitudes por RUT
 const getRut = rut => {
-    return httpClient.get(`/requests/rut/${rut}`);
+    return httpClient.get(`/app/micro/requests/rut/${rut}`);
 }
 
+// Crear nueva solicitud
 const create = data => {
-    return httpClient.post("/requests/", data);
+    return httpClient.post("/app/micro/requests/", data);
 }
 
+// Actualizar solicitud por ID
 const update = (id, data) => {
-    return httpClient.put(`/requests/${id}`, data);
+    return httpClient.put(`/app/micro/requests/${id}`, data);
 }
 
-const simulation = (data) => {
-    return httpClient.post("/requests/simulation", data);
-}
-
-const evaluation = id => {
-    return httpClient.get(`/requests/evaluation/${id}`);
-}
-
-const totalCost = id => {
-    return httpClient.get(`/requests/totalCost/${id}`);
-}
-
-export default { getAll, getId, getRut, create, update, simulation, evaluation, totalCost };
+export default { getAll, getId, getRut, create, update };

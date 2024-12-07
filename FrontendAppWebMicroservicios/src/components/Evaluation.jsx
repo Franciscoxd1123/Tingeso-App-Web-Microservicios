@@ -26,7 +26,7 @@ const Evaluation = () => {
 
   const evaluateRequest = (id) => {
     setLoading(true);
-    requestService.evaluation(id)
+    evaluationService.evaluateRequest(id)
         .then((response) => {
             console.log("Resultado de la evaluación:", response.data);
             setEvaluationResult(response.data);

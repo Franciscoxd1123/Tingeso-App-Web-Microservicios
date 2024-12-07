@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/loan-type-service/pom.xml" />
         <option value="$PROJECT_DIR$/PBMyRequests/pom.xml" />
         <option value="$PROJECT_DIR$/PBEvaluation/pom.xml" />
+        <option value="$PROJECT_DIR$/PBSimulation/pom.xml" />
       </list>
     </option>
   </component>

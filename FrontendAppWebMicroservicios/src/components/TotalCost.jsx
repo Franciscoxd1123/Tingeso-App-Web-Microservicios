@@ -26,7 +26,7 @@ const TotalCost = () => {
 
     const calculateTotalCost = (id) => {
         setLoading(true);
-        requestService.totalCost(id)
+        evaluationService.totalCost(id)
             .then((response) => {
                 setTotalCostResult(response.data);
             })

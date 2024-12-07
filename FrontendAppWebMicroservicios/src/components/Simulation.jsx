@@ -17,7 +17,7 @@ function Simulation() {
 
     const request = {rut :"10.000.000-0", type, amount, interest, time, state: 0, id: 0}
 
-    requestService
+    simulationService
     .simulation(request)
     .then((response) => {
         console.log("La simulación del crédito ha sido realizada correctamente.", response.data);

@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const backendServer = import.meta.env.VITE_BACKEND_SERVER;
-const backendPort = import.meta.env.VITE_BACKEND_PORT;
+const backendServer = import.meta.env.VITE_BACKEND_SERVER || 'PBGateway';
+const backendPort = import.meta.env.VITE_BACKEND_PORT || '8080';
 
 console.log(`Connecting to backend server at: ${backendServer}:${backendPort}`);
 
 export default axios.create({
-    baseURL: `http://${backendServer}:${backendPort}/app/mono`,
+    baseURL: `http://${backendServer}:${backendPort}/app/micro`,
     headers: {
         'Content-Type': 'application/json'
     }
