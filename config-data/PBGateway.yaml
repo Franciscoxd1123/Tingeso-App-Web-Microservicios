@@ -33,3 +33,7 @@ spring:
           uri: lb://PBEvaluation
           predicates:
             - Path=/app/micro/evaluation/**
+        - id: PBSimulation
+          uri: lb://PBSimulation
+          predicates:
+            - Path=/app/micro/simulation/**

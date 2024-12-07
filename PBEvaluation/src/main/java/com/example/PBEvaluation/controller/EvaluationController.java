@@ -13,6 +13,12 @@ public class EvaluationController {
     @Autowired
     EvaluationService evaluationService;
 
+    @PostMapping("/monthlyPayments")
+    public ResponseEntity<Integer> calculateMonthlyPayments(@RequestBody Request request) {
+        int monthlyPayments = evaluationService.getMonthlyPayments(request);
+        return ResponseEntity.ok(monthlyPayments);
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Request> evaluateRequest(@PathVariable Long id) {
         Request requestEvaluated = evaluationService.evaluateRequest(id);
