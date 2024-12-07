@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const backendServer = import.meta.env.VITE_BACKEND_SERVER || 'PBGateway';
+const backendServer = import.meta.env.VITE_BACKEND_SERVER || 'localhost';
 const backendPort = import.meta.env.VITE_BACKEND_PORT || '8080';
 
 console.log(`Connecting to backend server at: ${backendServer}:${backendPort}`);
