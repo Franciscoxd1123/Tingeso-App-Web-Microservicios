@@ -25,3 +25,7 @@ spring:
           uri: lb://PBRequest
           predicates:
             - Path=/app/micro/requests/**
+        - id: PBMyRequests
+          uri: lb://PBMyRequests
+          predicates:
+            - Path=/app/micro/myrequests/**
