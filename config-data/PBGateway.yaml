@@ -29,3 +29,7 @@ spring:
           uri: lb://PBMyRequests
           predicates:
             - Path=/app/micro/myrequests/**
+        - id: PBEvaluation
+          uri: lb://PBEvaluation
+          predicates:
+            - Path=/app/micro/evaluation/**
