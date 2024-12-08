@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/app/micro/requests")
-@CrossOrigin("*")
 public class RequestController {
     @Autowired
     RequestService requestService;

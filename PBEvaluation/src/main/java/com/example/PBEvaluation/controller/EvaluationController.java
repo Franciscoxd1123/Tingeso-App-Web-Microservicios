@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/app/micro/evaluation")
-@CrossOrigin("*")
 public class EvaluationController {
     @Autowired
     EvaluationService evaluationService;

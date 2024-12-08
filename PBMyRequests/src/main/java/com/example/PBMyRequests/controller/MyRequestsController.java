@@ -11,7 +11,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/app/micro/myrequests")
-@CrossOrigin("*")
 public class MyRequestsController {
     @Autowired
     MyRequestsService myRequestsService;
