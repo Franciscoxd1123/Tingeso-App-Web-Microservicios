@@ -18,6 +18,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="PBClient" target="17" />
+      <module name="PBEvaluation" target="17" />
+      <module name="PBMyRequests" target="17" />
+      <module name="PBRequest" target="17" />
+      <module name="PBSimulation" target="17" />
       <module name="Tingeso-App-Web-Microservicios" target="1.5" />
     </bytecodeTargetLevel>
   </component>

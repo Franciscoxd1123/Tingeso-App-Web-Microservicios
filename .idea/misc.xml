@@ -15,10 +15,6 @@
         <option value="$PROJECT_DIR$/PBEvaluation/pom.xml" />
         <option value="$PROJECT_DIR$/PBSimulation/pom.xml" />
         <option value="$PROJECT_DIR$/pb-client-service/pom.xml" />
-        <option value="$PROJECT_DIR$/pb-request-service/pom.xml" />
-        <option value="$PROJECT_DIR$/pb-myrequests-service/pom.xml" />
-        <option value="$PROJECT_DIR$/pb-evaluation-service/pom.xml" />
-        <option value="$PROJECT_DIR$/pb-simulation-service/pom.xml" />
       </list>
     </option>
   </component>

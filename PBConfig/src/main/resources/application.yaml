@@ -6,7 +6,7 @@ spring:
       server:
         git:
           default-label: main
-          uri: https://github.com/Franciscoxd1123/Kubernetes
+          uri: https://github.com/Franciscoxd1123/Tingeso-App-Web-Microservicios
           search-paths: config-data
   application:
     name: PBConfig

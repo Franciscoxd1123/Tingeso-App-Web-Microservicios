@@ -5,9 +5,5 @@
     <file url="file://$PROJECT_DIR$/PBEureka/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PBGateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/pb-client-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pb-evaluation-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pb-myrequests-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pb-request-service/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/pb-simulation-service/src/main/java" charset="UTF-8" />
   </component>
 </project>
