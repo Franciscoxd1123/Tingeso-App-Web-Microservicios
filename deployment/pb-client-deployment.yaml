@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pb-client-deployment
+  labels:
+    app: pb-client-deployment
+spec:
+  selector:
+    matchLabels:
+      app: pb-client-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pb-client-deployment
+    spec:
+      containers:
+        - name: pb-client-service
+          image: franciscoxd1123/pbclient
+          ports:
+            - containerPort: 8090
+          env:
+            - name: SERVER_PORT
+              value: "0"
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_HOST_PBCLIENT
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_PORT_PBCLIENT
+            - name: DB_DBNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_DBNAME_PBCLIENT
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: DB_USER_PBCLIENT
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: DB_PASSWORD_PBCLIENT
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pb-client-service
+  labels:
+    app: pb-client-service
+spec:
+  selector:
+    app: pb-client-deployment
+  ports:
+    - protocol: TCP
+      port: 8091
+      targetPort: 0
+  type: NodePort

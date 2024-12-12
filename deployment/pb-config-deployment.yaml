@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pb-config-deployment
+  labels:
+    app: pb-config-deployment
+spec:
+  selector:
+    matchLabels:
+      app: pb-config-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pb-config-deployment
+    spec:
+      containers:
+        - name: pb-config-service
+          image: franciscoxd1123/pbconfig
+          ports:
+            - containerPort: 8081
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pb-config-service
+  labels:
+    app: pb-config-service
+spec:
+  selector:
+    app: pb-config-deployment
+  ports:
+    - protocol: TCP
+      port: 8081
+      targetPort: 8081
+  type: NodePort

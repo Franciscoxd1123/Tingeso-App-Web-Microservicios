@@ -56,6 +56,6 @@
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 		</plugins>
+		<finalName>PBEureka</finalName>
 	</build>
-
 </project>

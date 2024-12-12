@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FrontendAppWebMicroservicios/FrontendAppWebMicroservicios.iml" filepath="$PROJECT_DIR$/FrontendAppWebMicroservicios/FrontendAppWebMicroservicios.iml" />
       <module fileurl="file://$PROJECT_DIR$/config-data/config-data.iml" filepath="$PROJECT_DIR$/config-data/config-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/deployment/deployment.iml" filepath="$PROJECT_DIR$/deployment/deployment.iml" />
     </modules>
   </component>
 </project>

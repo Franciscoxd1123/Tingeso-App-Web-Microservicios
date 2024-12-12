@@ -10,6 +10,3 @@ node_modules/
 
 # Ignorar archivos de sistema y otros archivos innecesarios
 .DS_Store
-
-# Ignorar archivos de configuración de Docker
-.dockerignore

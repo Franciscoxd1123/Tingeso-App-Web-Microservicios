@@ -6,9 +6,9 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://localhost:8761/eureka
+      defaultZone: http://pb-eureka-service:8761/eureka
   instance:
-    hostname: localhost
+    hostname: pb-gateway-service
 
 spring:
   cloud:
@@ -25,23 +25,23 @@ spring:
             allowedMethods: "*"
             allowedHeaders: "*"
       routes:
-        - id: PBClient
-          uri: lb://PBClient
+        - id: pb-client-service
+          uri: lb://pb-client-service
           predicates:
             - Path=/app/micro/clients/**
-        - id: PBRequest
-          uri: lb://PBRequest
+        - id: pb-request-service
+          uri: lb://pb-request-service
           predicates:
             - Path=/app/micro/requests/**
-        - id: PBMyRequests
-          uri: lb://PBMyRequests
+        - id: pb-myrequests-service
+          uri: lb://pb-myrequests-service
           predicates:
             - Path=/app/micro/myrequests/**
-        - id: PBEvaluation
-          uri: lb://PBEvaluation
+        - id: pb-evaluation-service
+          uri: lb://pb-evaluation-service
           predicates:
             - Path=/app/micro/evaluation/**
-        - id: PBSimulation
-          uri: lb://PBSimulation
+        - id: pb-simulation-service
+          uri: lb://pb-simulation-service
           predicates:
             - Path=/app/micro/simulation/**

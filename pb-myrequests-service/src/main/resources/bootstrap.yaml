@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: pb-myrequests-service
+  cloud:
+    config:
+      enabled: true
+      uri: http://pb-config-service:8081
+  datasource:
+    url: jdbc:postgresql://${DB_HOST}:${DB_PORT}/${DB_DBNAME}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto: update

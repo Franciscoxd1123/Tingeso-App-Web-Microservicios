@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pb-myrequests-deployment
+  labels:
+    app: pb-myrequests-deployment
+spec:
+  selector:
+    matchLabels:
+      app: pb-myrequests-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pb-myrequests-deployment
+    spec:
+      containers:
+        - name: pb-myrequests-service
+          image: franciscoxd1123/pbmyrequests
+          ports:
+            - containerPort: 8090
+          env:
+            - name: SERVER_PORT
+              value: "0"
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_HOST_PBMYREQUESTS
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_PORT_PBMYREQUESTS
+            - name: DB_DBNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config-map
+                  key: DB_DBNAME_PBMYREQUESTS
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: DB_USER_PBMYREQUESTS
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: DB_PASSWORD_PBMYREQUESTS
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pb-myrequests-service
+  labels:
+    app: pb-myrequests-service
+spec:
+  selector:
+    app: pb-myrequests-deployment
+  ports:
+    - protocol: TCP
+      port: 8093
+      targetPort: 0
+  type: NodePort
